@@ -11,7 +11,9 @@ PolymerExpressions.prototype.currency = function (input, currency, precision) {
 		return "Value is not a Number";
 	} else {
 		currency = currency || "$";
-		precision = precision || 2;
+		if (typeof precision === 'undefined') {
+			precision = 2;
+		}
 
 		input = Number(input);
 		input = input.toFixed(precision);
